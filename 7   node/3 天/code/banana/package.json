@@ -1,0 +1,14 @@
+{
+	"name": "banana_format",
+	"version": "1.0.0",
+	"description": "这是banana的测试",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"ceshi"
+	],
+	"author": "banana",
+	"license": "ISC"
+}
