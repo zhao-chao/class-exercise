@@ -1,2 +1,5 @@
-const banana = require('./banana')
-console.log(banana)
+const moment = require('moment')
+
+const dt = moment().format('YYYY--MM-DD')
+
+console.log(dt)
