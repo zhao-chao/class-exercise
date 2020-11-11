@@ -2,17 +2,11 @@ const express = require('express')
 
 const app = express()
 
-// 解析
-app.use(express.json())
+const parser = require('body-parser')
 
-app.use(express.urlencoded({ extended: false }))
+app.use(parser.urlencoded({ extended: false }))
 
 app.post('/user', (req, res) => {
-	console.log(req.body)
-	res.send('ok')
-})
-
-app.post('/book', (req, res) => {
 	console.log(req.body)
 	res.send('ok')
 })
