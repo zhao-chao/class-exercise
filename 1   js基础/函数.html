@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			function he(num1, num2, num3) {
+				var temp = 0
+				if (num2 == '+') {
+					temp = num1 - 0 + (num3 - 0)
+				} else if (num2 == '-') {
+					temp = num1 - num3
+				} else if (num2 == '*') {
+					temp = num1 * num3
+				} else if (num2 == '/') {
+					temp = num1 / num3
+				}
+				return temp
+			}
+
+			var arr1 = prompt('第一个数')
+			var arr2 = prompt('运算符')
+			var arr3 = prompt('第二个数')
+			alert(`运算结果是 ${he(arr1, arr2, arr3)}`)
+		</script>
+	</body>
+</html>

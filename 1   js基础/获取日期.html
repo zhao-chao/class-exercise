@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			var md = new Date()
+			var y = md.getFullYear()
+			var m = (md.getMonth() + 1).toString().padStart(2, '0')
+
+			var d = md.getDate().toString().padStart(2, '0')
+
+			var h = md.getHours().toString().padStart(2, '0')
+
+			var f = md.getMinutes().toString().padStart(2, '0')
+
+			var s = md.getSeconds().toString().padStart(2, '0')
+
+			var str = `${y}-${m}-${d} ${h}:${f}:${s}`
+			document.write(str)
+		</script>
+	</body>
+</html>

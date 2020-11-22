@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			var str = 'ascfwdgaassdscaasxxzxdssdsesssaavss'
+			var index = str.indexOf('s')
+
+			while (index !== -1) {
+				console.log(index)
+				var num = 0
+				index = str.indexOf('s' + index + 1)
+				num++
+			}
+			console.log(`出现了${num}次`)
+		</script>
+	</body>
+</html>
