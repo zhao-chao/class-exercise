@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// var i=function(){};
+			function i(aa, age) {
+				this.name = aa
+				this.age = age
+			}
+			var j = new i('11', 18)
+			var key = Object.keys(j)
+			console.log(key)
+			for (let index = 0; index < key.length; index++) {
+				console.log(j[key[index]])
+			}
+		</script>
+	</body>
+</html>
