@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			var now = new Date()
+			var n = now.getFullYear()
+			var y = now.getMonth() + 1
+			y = y < 10 ? '0' + y : y
+			var r = now.getDate()
+			r = r < 10 ? '0' + r : r
+			document.write(`${n}-${y}-${r}`)
+		</script>
+	</body>
+</html>
