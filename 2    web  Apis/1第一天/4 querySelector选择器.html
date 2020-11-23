@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			div,
+			p {
+				width: 100px;
+				height: 30px;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<script src="js/public.js"></script>
+		<script>
+			var div = $('#box')
+			div.style.backgroundColor = '#007acc'
+
+			var ps = $$('p')
+			console.log(ps)
+		</script>
+	</body>
+</html>

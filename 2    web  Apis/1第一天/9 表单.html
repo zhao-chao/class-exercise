@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button>按钮</button>
+		<input type="text" value="输入内容" />
+		<script src="js/public.js"></script>
+		<script>
+			var but = $('button')
+			var inp = $('input')
+			but.onclick = function () {
+				inp.value = '点过了'
+				but.disabled = true
+			}
+		</script>
+	</body>
+</html>

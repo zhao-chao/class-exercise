@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			div {
+				width: 100px;
+				height: 50px;
+				background-color: red;
+				text-align: center;
+				line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="btn">点击</div>
+		<script src="js/public.js"></script>
+		<script>
+			var btn = $('#btn')
+			btn.onclick = function () {
+				btn.style.backgroundColor = '#007acc'
+				btn.style.color = '#fff'
+				btn.style.width = '300px'
+				alert('黑凤梨')
+			}
+		</script>
+	</body>
+</html>

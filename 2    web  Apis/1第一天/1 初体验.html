@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			div {
+				width: 100px;
+				height: 100px;
+			}
+			p {
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<p id="p"></p>
+		<script>
+			var atr = document.getElementById('box')
+			atr.style.backgroundColor = '#007acc'
+
+			var p = document.getElementById('p')
+			p.style.backgroundColor = '#007acc'
+			p.style.borderRadius = '50%'
+		</script>
+	</body>
+</html>

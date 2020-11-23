@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			div {
+				position: relative;
+				width: 400px;
+				border-bottom: 1px solid #000;
+				margin: 0 auto;
+			}
+			input {
+				width: 370px;
+				height: 30px;
+				border: 0;
+				outline: none;
+			}
+			img {
+				position: absolute;
+				right: 10px;
+				width: 24px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<input type="password" />
+			<img src="images/close.png" alt="" />
+		</div>
+		<script src="js/public.js"></script>
+		<script>
+			var inp = $('input')
+			var img = $('img')
+			var a = 0
+			img.onclick = function () {
+				if (a == 0) {
+					inp.type = 'text'
+					img.src = 'images/open.png'
+					a = 1
+				} else {
+					inp.type = 'password'
+					img.src = 'images/close.png'
+					a = 0
+				}
+			}
+		</script>
+	</body>
+</html>
