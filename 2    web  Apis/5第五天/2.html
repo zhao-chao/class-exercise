@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<form>
+			<input type="text" name="username" />
+			<input type="password" name="pwd" />
+			<input type="text" name="age" />
+			<button>提交</button>
+		</form>
+		<script>
+			var search = location.search
+
+			var obj = {}
+			var str = search.substr(1)
+			var arr = str.split('&')
+			for (var i = 0; i < arr.length; i++) {
+				var newarr = arr[i].split('=')
+				obj[newarr[0]] = newarr[1]
+			}
+			console.log(obj)
+		</script>
+	</body>
+</html>

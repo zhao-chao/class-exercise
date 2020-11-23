@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			div {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			var div = document.querySelector('div')
+			var startx
+			var starty
+			var x
+			var y
+			div.addEventListener('touchstart', function (e) {
+				startx = e.targetTouches[0].pageX
+				starty = e.targetTouches[0].pageY
+				x = this.offsetLeft
+				y = this.offsetTop
+			})
+			div.addEventListener('touchmove', function (e) {
+				var movex = e.targetTouches[0].pageX - startx
+				var movey = e.targetTouches[0].pageY - starty
+				this.style.left = movex + x + 'px'
+				this.style.top = movey + y + 'px'
+			})
+		</script>
+	</body>
+</html>

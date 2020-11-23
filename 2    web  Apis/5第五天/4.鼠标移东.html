@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.box {
+				position: absolute;
+				left: 50%;
+
+				top: 100px;
+				width: 300px;
+				height: 300px;
+				background-color: #007acc;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<script>
+			var box = document.querySelector('.box')
+			box.onmousemove = function (e) {
+				var pagex = e.pageX
+				var pagey = e.pageY
+				var xx = this.offsetLeft
+				var yy = this.offsetTop
+				var x = e.pageX - xx
+				var y = e.pageY - yy
+				box.innerHTML = `X坐标为${x} y坐标为${y}`
+			}
+		</script>
+	</body>
+</html>

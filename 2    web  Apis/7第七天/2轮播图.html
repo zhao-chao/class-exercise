@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				border: 0;
+			}
+
+			.all {
+				width: 500px;
+				height: 200px;
+				padding: 7px;
+				border: 1px solid #ccc;
+				margin: 100px auto;
+				position: relative;
+			}
+
+			.screen {
+				width: 500px;
+				height: 200px;
+				/* overflow: hidden; */
+				position: relative;
+			}
+
+			.screen li {
+				width: 500px;
+				height: 200px;
+				overflow: hidden;
+				float: left;
+			}
+
+			.screen ul {
+				position: absolute;
+				left: 0;
+				top: 0px;
+				width: 3000px;
+			}
+
+			.all ol {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+				line-height: 20px;
+				text-align: center;
+			}
+
+			.all ol li {
+				float: left;
+				width: 20px;
+				height: 20px;
+				background: #fff;
+				border: 1px solid #ccc;
+				margin-left: 10px;
+				cursor: pointer;
+			}
+
+			.all ol li.current {
+				background: yellow;
+			}
+
+			#arr {
+				display: none;
+				z-index: 1000;
+			}
+
+			#arr span {
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				left: 5px;
+				top: 50%;
+				margin-top: -20px;
+				background: #000;
+				cursor: pointer;
+				line-height: 40px;
+				text-align: center;
+				font-weight: bold;
+				font-family: '黑体';
+				font-size: 30px;
+				color: #fff;
+				opacity: 0.3;
+				border: 1px solid #fff;
+			}
+
+			#arr #right {
+				right: 5px;
+				left: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="all" id="box">
+			<div class="screen" id="screen">
+				<ul id="ul">
+					<li>
+						<img src="img/1.jpg" width="500" height="200" />
+					</li>
+					<li>
+						<img src="img/2.jpg" width="500" height="200" />
+					</li>
+					<li>
+						<img src="img/3.jpg" width="500" height="200" />
+					</li>
+					<li>
+						<img src="img/4.jpg" width="500" height="200" />
+					</li>
+					<li>
+						<img src="img/5.jpg" width="500" height="200" />
+					</li>
+				</ul>
+				<ol id="ol"></ol>
+			</div>
+			<div id="arr">
+				<span id="left">&lt;</span><span id="right">&gt;</span>
+			</div>
+		</div>
+		<script>
+			function animate(obj, target, callback) {
+				// console.log(callback);  callback = function() {}  调用的时候 callback()
+
+				// 先清除以前的定时器，只保留当前的一个定时器执行
+				clearInterval(obj.timer)
+				obj.timer = setInterval(function () {
+					// 步长值写到定时器的里面
+					// 把我们步长值改为整数 不要出现小数的问题
+					// var step = Math.ceil((target - obj.offsetLeft) / 10);
+					var step = (target - obj.offsetLeft) / 10
+					step = step > 0 ? Math.ceil(step) : Math.floor(step)
+					if (obj.offsetLeft == target) {
+						// 停止动画 本质是停止定时器
+						clearInterval(obj.timer)
+						// 回调函数写到定时器结束里面
+						// if (callback) {
+						//     // 调用函数
+						//     callback();
+						// }
+						callback && callback()
+						return
+					}
+					// 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10
+					obj.style.left = obj.offsetLeft + step + 'px'
+				}, 15)
+			}
+		</script>
+		<script>
+			// 先生成li标签 根据ul标签里面的li的个数去生成ol标签里面的li
+			// 获取ul标签与ol标签
+			var ul = document.querySelector('#ul')
+			var ol = document.querySelector('#ol')
+			// 获取screen的宽度
+			var screenWidth = document.querySelector('#screen').offsetWidth
+
+			// 循环ul下面的li
+			for (var i = 0; i < ul.children.length; i++) {
+				// 创建li标签
+				var li = document.createElement('li')
+				// 往li里面写入数字
+				li.innerHTML = i + 1
+				// 将li追加到ol里面去
+				ol.appendChild(li)
+				// 判断一下 如果变量i 的值  === 0 表示第一个 就给它添加一个className = 'current'
+				if (i === 0) li.className = 'current'
+			}
+			// 在这里找到ol标签里面的第一个li
+			// ol.children[0].className = 'current'
+
+			// 给ol里面的每一个li注册点击事件
+			var lis = ol.children // 获取ol里面的li
+			for (var i = 0; i < lis.length; i++) {
+				// 先添加自定义的属性
+				lis[i].setAttribute('data-index', i)
+				lis[i].addEventListener('click', function () {
+					for (var j = 0; j < lis.length; j++) {
+						lis[j].className = ''
+					}
+					// 需要打印点击的哪一个li
+					var index = this.getAttribute('data-index')
+					// 让谁移动 ul移动  移动多少
+					animate(ul, -index * screenWidth)
+					num = count = index
+					lis[index].className = 'current'
+				})
+			}
+			var screen = document.querySelector('#screen')
+			var arr = document.querySelector('#arr')
+			box.addEventListener('mouseenter', function () {
+				arr.style.display = 'block'
+				clearInterval(timerID)
+			})
+			box.addEventListener('mouseleave', function () {
+				arr.style.display = 'none'
+				timerID = setInterval(function () {
+					right.click()
+				}, 1000)
+			})
+
+			var right = document.querySelector('#right')
+			ul.appendChild(ul.children[0].cloneNode(true))
+			var count = 0
+			var num = 0
+			var flag = true
+			right.addEventListener('click', function () {
+				// if (flag) {
+				// 	flag = false
+				if (count === ul.children.length - 1) {
+					count = 0
+				}
+				count++
+				animate(ul, -count * screenWidth, function () {
+					// flag = true
+				})
+
+				if (num < lis.length - 1) {
+					num++
+				} else {
+					num = 0
+				}
+				for (var i = 0; i < lis.length; i++) {
+					lis[i].className = ''
+				}
+				lis[num].className = 'current'
+				// }
+			})
+
+			// 左
+			var left = document.querySelector('#left')
+			left.addEventListener('click', function () {
+				if (count === 0) {
+					count = ul.children.length - 1
+					ul.style.left = -(count * screenWidth) + 'px'
+				}
+				count--
+				animate(ul, -count * screenWidth)
+				if (num > 0) {
+					num--
+				} else {
+					num = lis.length - 1
+				}
+				for (var i = 0; i < lis.length; i++) {
+					lis[i].className = ''
+				}
+				lis[num].className = 'current'
+			})
+			var timerID = setInterval(function () {
+				right.click()
+			}, 1000)
+		</script>
+	</body>
+</html>

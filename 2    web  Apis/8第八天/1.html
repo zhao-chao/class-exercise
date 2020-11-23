@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			var div = document.querySelector('div')
+			div.addEventListener('touchstart', function () {
+				div.style.backgroundColor = 'pink'
+				console.log('22222')
+			})
+			div.addEventListener('touchmove', function () {
+				console.log('312654513')
+			})
+			div.addEventListener('touchend', function () {
+				console.log('11111111')
+			})
+		</script>
+	</body>
+</html>
