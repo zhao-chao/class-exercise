@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			var div = document.querySelector('div')
+			// function time() {}
+
+			// setInterval(time, 0)
+			setInterval(function () {
+				var my = new Date()
+				var y = my.getFullYear()
+				var m = (my.getMonth() + 1).toString().padStart(2, '0')
+				var d = my.getDate().toString().padStart(2, '0')
+				var h = my.getHours().toString().padStart(2, '0')
+				var f = my.getMonth().toString().padStart(2, '0')
+				var s = my.getSeconds().toString().padStart(2, '0')
+				var str = `${y}-${m}-${d}  ${h}:${f}:${s}`
+				div.innerHTML = str
+			}, 0)
+		</script>
+	</body>
+</html>
