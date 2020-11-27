@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<div style="margin-bottom: 15px">
+			<input type="text" id="username" placeholder="请输入姓名" />
+			<input type="text" id="age" placeholder="请输入性别" />
+			<input type="text" id="sex" placeholder="请输入年龄" />
+			<input type="button" value="提交" id="btn" />
+		</div>
+		<table border="1" width="540">
+			<thead>
+				<tr>
+					<td>姓名</td>
+					<td>性别</td>
+					<td>年龄</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		<script>
+			// 要求1：点击提交按钮，让用户输入的内容分别加入到表格对应的列表中
+
+			// 要求2：点击每一行的删除按钮，能删除当前行
+
+			// 要求3：刷新页面时能保留当前的页面效果（数据状态不会消失）
+
+			// 要求4：代码规范
+			// 按钮
+			var btn = document.querySelector('#btn')
+			// 名字
+			var uname = document.querySelector('#username')
+			// 性别
+			var age = document.querySelector('#age')
+			// 年零
+			var sex = document.querySelector('#sex')
+			// 表单
+			var tbody = document.querySelector('tbody')
+
+			btn.addEventListener('click', function () {
+				var obj = {
+					username: uname.value,
+					age: age.value,
+					sex: sex.value,
+				}
+				var data = getData()
+				data.push(obj)
+				setsave(data)
+				load()
+			})
+			function getData() {
+				if (localStorage.getItem('sudy')) {
+					return JSON.parse(localStorage.getItem('sudy'))
+				} else {
+					return []
+				}
+			}
+			function setsave(data) {
+				localStorage.setItem('sudy', JSON.stringify(data))
+			}
+			load()
+			function load() {
+				var tbody = document.querySelector('tbody')
+				tbody.innerHTML = ''
+				var data = getData()
+				for (let index = 0; index < data.length; index++) {
+					var tr = document.createElement('tr')
+					tr.innerHTML = `<td>${data[index]['username']}</td><td>${data[index]['sex']}</td><td>${data[index]['age']}</td><td><a href='javascript:;' id=${index}>删除</a></td>`
+
+					tbody.appendChild(tr)
+				}
+			}
+
+			tbody.onmouseover = function () {
+				var as = document.querySelectorAll('a')
+				for (var index = 0; index < as.length; index++) {
+					;(function (index) {
+						as[index].onclick = function () {
+							var data = getData()
+							data.splice(index, 1)
+							setsave(data)
+							load()
+						}
+					})(index)
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button>按钮</button>
+		<audio
+			src="../../../第五组项目/背景音乐.flac"
+			autoplay
+			loop
+			id="vd"
+		></audio>
+		<script src="../jquery.min.js"></script>
+		<script>
+			$('button').click(function () {
+				$('audio').get(0).play()
+			})
+		</script>
+	</body>
+</html>

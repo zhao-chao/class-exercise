@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div style="margin-bottom: 15px">
+      <input type="text" id="username" placeholder="请输入姓名" />
+      <input type="text" id="age" placeholder="请输入性别" />
+      <input type="text" id="sex" placeholder="请输入年龄" />
+      <input type="button" value="提交" id="btn" />
+    </div>
+    <table border="1" width="540">
+      <thead>
+        <tr>
+          <td>姓名</td>
+          <td>性别</td>
+          <td>年龄</td>
+          <td>操作</td>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script src="./day3/js/jquery.min.js"></script>
+    <script>
+      $("#btn").click(function () {
+        // 获取输入框的内容
+        var username = $("#username").val();
+        var age = $("#age").val();
+        var sex = $("#sex").val();
+
+        if (username.trim().length === 0 || age.trim().length === 0 || sex.trim().length === 0) return alert("请填写内容");
+
+        var obj = {
+          username: username,
+          age: age,
+          sex: sex
+        };
+
+        var data = getData(); // 先从本地存储中将数据取出来 看看有没有数据 如果有 返回一个有元素的数组 如果没有 就会返回空数组
+        data.push(obj);
+
+        // 将数据同时的写入到本地存储中
+        setData(data);
+        // 同时需要重新渲染数据
+        render();
+        // 需要清空
+        $("#username").val("");
+        $("#age").val("");
+        $("#sex").val("");
+
+        // console.log(data);
+      });
+
+      function getData() {
+        // var localData = window.localStorage.getItem("data");
+        // if (localData === null) {
+        //   // 本地存储中没有数据
+        //   return [];
+        // } else {
+        //   // 表示有数据  将数据转换为 是一个字符串  需要将字符串转换为JS对象
+        //   return JSON.parse(localData);
+        // }
+        return JSON.parse(window.localStorage.getItem("username")) || [];
+      }
+
+      function setData(item) {
+        window.localStorage.setItem("username", JSON.stringify(item));
+      }
+
+      function render() {
+        var data = getData();
+        var str = "";
+        $.each(data, function (index, item) {
+          str += `
+                <tr>
+                    <td>${item.username}</td>
+                    <td>${item.age}</td>
+                    <td>${item.sex}</td>
+                    <td><a href="javascript:;" data-index="${index}">删除</a></td>
+                </tr>
+            
+            `;
+        });
+        $("tbody").html(str);
+      }
+
+      render();
+
+      $("tbody").on("click", "a", function () {
+        if (window.confirm("你真的要删除吗?")) {
+          var index = $(this).attr("data-index");
+          var arr = getData();
+          arr.splice(index, 1);
+          setData(arr);
+          render();
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<div style="margin-bottom: 15px">
+			<input type="text" id="username" placeholder="请输入姓名" />
+			<input type="text" id="age" placeholder="请输入性别" />
+			<input type="text" id="sex" placeholder="请输入年龄" />
+			<input type="button" value="提交" id="btn" />
+		</div>
+		<table border="1" width="540">
+			<thead>
+				<tr>
+					<td>姓名</td>
+					<td>性别</td>
+					<td>年龄</td>
+					<td>操作</td>
+					<a href=""></a>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+		<script src="./jquery.min.js"></script>
+		<script>
+			load()
+			$('#btn').click(function () {
+				// 获取文本信息
+				if (
+					$('#username').val() == '' ||
+					$('#age').val() === '' ||
+					$('#sex').val() === ''
+				) {
+					alert('请完成输入')
+				} else {
+					var data1 = getdate()
+					data1.push({
+						uname: $('#username').val(),
+						age: $('#age').val(),
+						sex: $('#sex').val(),
+					})
+					savedata(data1)
+					load(data1)
+					$('#username').val('')
+					$('#age').val('')
+					$('#sex').val('')
+				}
+			})
+			// 读取
+			function getdate() {
+				var data = localStorage.getItem('name')
+				if (data !== null) {
+					return JSON.parse(data)
+				} else {
+					return []
+				}
+			}
+			// 添加
+			function savedata(data1) {
+				localStorage.setItem('name', JSON.stringify(data1))
+			}
+
+			// 删除
+			$('tbody').on('click', 'a', function () {
+				var data = getdate()
+				var i = $(this).attr('id')
+				data.splice(i, 1)
+				savedata(data)
+				load()
+			})
+
+			// 创建tr
+			function load() {
+				var data = getdate()
+				$('tbody').html('')
+				$.each(data, function (i, n) {
+					$('tbody').prepend(`<tr>
+					<td>${data[i].uname} </td>
+					<td>${data[i].age}</td>
+					<td>${data[i].sex}</td>
+					<td><a href='javascript:;' id=${i}>删除</a></td></tr>`)
+				})
+			}
+		</script>
+	</body>
+</html>
