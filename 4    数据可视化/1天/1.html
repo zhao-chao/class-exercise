@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			div {
+				width: 1200px;
+				height: 700px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script src="../js/echarts.min.js"></script>
+		<script>
+			var myCharts = echarts.init(document.querySelector('div'))
+			// var ROOT_PATH = 'https://echarts-www.cdn.bcebos.com/examples'
+			option = {
+				xAxis: {
+					type: 'category',
+					data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				},
+				yAxis: {
+					type: 'value',
+				},
+				series: [
+					{
+						data: [820, 932, 901, 934, 1290, 1330, 1320],
+						type: 'line',
+					},
+				],
+			}
+			myCharts.setOption(option)
+		</script>
+	</body>
+</html>
