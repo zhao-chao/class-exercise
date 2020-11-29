@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			function fn() {
+				var a = 3
+				return function () {
+					return ++a
+				}
+			}
+			console.log(fn()()) //4
+			console.log(fn()()) //4
+			console.log(fn()()) //4
+			var newFn = fn()
+			console.log(newFn()) //4
+			console.log(newFn()) //5
+			console.log(newFn()) //6
+		</script>
+	</body>
+</html>

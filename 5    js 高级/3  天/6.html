@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			var i = 0
+			function outerFn() {
+				function innerFn() {
+					i++
+					console.log(i)
+				}
+				return innerFn()
+			}
+			var inner1 = outerFn()
+			var inner2 = outerFn()
+			inner1() //1
+			inner2() //1
+			inner1() //2
+			inner1() //3
+			inner2() //2
+			inner2() //3
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 创建闭包最常见的方式函数作为返回值
+			function foo() {
+				var name = 'kebi'
+				return function () {
+					console.log(name)
+				}
+			}
+			var bar = foo()
+			bar() // name = 'kebi'
+			//打印kebi    --外部函数访问内部变量
+		</script>
+	</body>
+</html>

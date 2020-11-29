@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			var age = 10
+			function foo() {
+				console.log(age) //10
+				var name = 'hunt_bo'
+				return function () {
+					console.log(name)
+				}
+			}
+
+			console.log(name)
+			var bar = foo() //10
+			bar() //hunt_bo
+		</script>
+	</body>
+</html>
