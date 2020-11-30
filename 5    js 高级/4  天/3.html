@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.red {
+				color: red;
+			}
+			.l {
+				color: #007acc;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" />
+		<button>点击</button>
+		<span></span>
+		<script>
+			var input = document.querySelector('input')
+			var btn = document.querySelector('button')
+			var span = document.querySelector('span')
+			// 邮箱
+			var rg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+			btn.onclick = function () {
+				if (rg.test(input.value)) {
+					span.className = 'l'
+					span.innerHTML = '对'
+				} else {
+					span.className = 'red'
+					span.innerHTML = '错'
+				}
+			}
+		</script>
+	</body>
+</html>
