@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<!-- 1. 导入模板引擎 -->
+		<!-- 在 window 全局，多一个函数，叫做 template('模板的Id', 需要渲染的数据对象) -->
+		<script src="./lib/template-web.js"></script>
+		<script src="./lib/jquery.js"></script>
+	</head>
+
+	<body>
+		<div id="container"></div>
+
+		<!-- 3. 定义模板 -->
+		<!-- 3.1 模板的 HTML 结构，必须定义到 script 中 -->
+		<script type="text/html" id="htmll">
+			<h1>{{}}</h1>
+			<h4>{{}}</h4>
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			var str = '爸爸爱你呦'
+			var str2 = encodeURI(str)
+			console.log(str2)
+
+			console.log('--------------------')
+			var str3 = decodeURI(
+				'%E4%BD%A0%E4%BB%AC%E5%8F%AF%E4%BB%A5%E6%8E%92%E9%98%9F%E7%BB%99%E6%88%91%E7%A3%95%E5%A4%B4%E5%90%97%EF%BC%9F'
+			)
+			console.log(str3)
+		</script>
+	</body>
+</html>
