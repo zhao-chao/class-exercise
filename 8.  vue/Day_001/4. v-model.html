@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			/* 给自定义属性添加样式 */
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 在input 框里面输入 内容 会改变 下面的arr 的值 -->
+			<input type="text" v-model="arr" />
+			<div v-cloak>{{arr}}</div>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			let vm = new Vue({
+				el: '#app',
+				data: {
+					arr: '',
+				},
+			})
+		</script>
+	</body>
+</html>

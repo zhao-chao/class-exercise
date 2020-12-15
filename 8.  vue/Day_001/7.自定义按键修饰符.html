@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-on:keyup.aaa="obj" v-model="uname" />
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			/*  事件绑定-自定义按键修饰符
+                规则：自定义按键修饰符名字是自定义的，
+                但是对应的值必须是按键对应event.keyCode值
+            */
+			Vue.config.keyCodes.aaa = 65
+			let vm = new Vue({
+				el: '#app',
+				data: {
+					uname: '',
+				},
+				methods: {
+					obj: function (event) {
+						console.log(event.keyCode)
+					},
+				},
+			})
+		</script>
+	</body>
+</html>

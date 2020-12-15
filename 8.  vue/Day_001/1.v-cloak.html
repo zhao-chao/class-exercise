@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+		<style>
+			/* 给自定义属性添加样式 */
+			[v-cloak] {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 给标签添加自定义属性 -->
+			<div v-cloak>{{user.uname}}</div>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			let vm = new Vue({
+				el: '#app',
+				data: {
+					user: {
+						uname: 'zs',
+						age: 18,
+						mobile: '1323232322',
+					},
+				},
+			})
+		</script>
+	</body>
+</html>

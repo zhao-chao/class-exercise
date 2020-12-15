@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+			.box {
+				border-radius: 50%;
+			}
+			.a {
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 这是数组 结合对像的方法 -->
+			<div v-bind:class="[isa,boxa,{ a:isa}]">拉拉</div>
+			<!-- 这是简化炒作 在下面定义类名的数组 -->
+			<div v-bind:class="arr">拉拉</div>
+			<!-- 这是对象的简化操作 在下面定义类名的数组 -->
+			<!-- 默认的属性会保留 -->
+			<div v-bind:class="obj1" class="a">拉拉</div>
+			<button @click="obj">切换</button>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			let vm = new Vue({
+				el: '#app',
+				data: {
+					isa: 'div',
+					boxa: 'box',
+					str: {
+						isa: true,
+					},
+					arr: ['div', 'box', 'a'],
+
+					obj1: {
+						div: true,
+						box: true,
+					},
+				},
+				methods: {
+					obj: function () {
+						// 取反
+						this.boxa = ''
+					},
+				},
+			})
+		</script>
+	</body>
+</html>

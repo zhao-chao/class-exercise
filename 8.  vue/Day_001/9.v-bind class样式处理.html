@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- div 是类名     isa自定义 是布尔值
+            当isa 为true 时候 类名生效 -->
+			<div v-bind:class="{ div:isa }"></div>
+			<button @click="obj">切换</button>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			let vm = new Vue({
+				el: '#app',
+				data: {
+					isa: true,
+				},
+				methods: {
+					obj: function () {
+						// 取反
+						this.isa = !this.isa
+					},
+				},
+			})
+		</script>
+	</body>
+</html>

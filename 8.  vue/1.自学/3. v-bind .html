@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-bind 可以控制标签的属性 -->
+			<a v-bind:href="url">{{mz}}</a>
+
+			<!-- v-bind 可以直接简写成: -->
+			<a :href="url">{{mz}}</a>
+			<button :disabled="disabled">{{mz2}}</button>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					mz: '百度',
+					url: 'http:baidu.com',
+					mz2: '按钮',
+					disabled: false,
+				},
+			})
+		</script>
+	</body>
+</html>

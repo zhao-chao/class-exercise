@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 在v-for 里面可以传两个值  第二个值是 索引  
+                 在循环的时候 也可以插入外部的属性
+            -->
+			<div v-for="(str,i) in arr">{{num}} - {{i}}: {{str}}</div>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					num: '字母',
+					arr: ['a', 'b', 'c'],
+				},
+			})
+		</script>
+	</body>
+</html>

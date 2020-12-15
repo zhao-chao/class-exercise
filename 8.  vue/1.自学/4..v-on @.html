@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+	</head>
+	<body>
+		<div id="app">
+			{{age}} <br />
+			<!-- <button v-on:click="obj" :disabled="disabled">{{number}}</button> -->
+			<button @click="obj" :disabled="disabled">{{number}}</button>
+			<hr />
+			<button @click="say('岸益')">点击</button>
+			{{uname}}
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					age: 0,
+					number: '点击',
+					disabled: false,
+					uname: '',
+				},
+				methods: {
+					obj: function () {
+						if (this.age === 10) {
+							this.disabled = true
+						} else {
+							this.age++
+						}
+					},
+					say: function (name) {
+						this.uname = '你好' + name
+					},
+				},
+			})
+		</script>
+	</body>
+</html>

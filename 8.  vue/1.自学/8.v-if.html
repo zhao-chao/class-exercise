@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+	</head>
+	<body>
+		<div id="app">
+			请输入年龄：
+			<input type="text" v-model="age" /> <br />
+
+			<!-- if 用来判断  如果里面 有内容  就会显示-->
+			<div v-if="age">{{age}}</div>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					age: '',
+				},
+			})
+		</script>
+	</body>
+</html>

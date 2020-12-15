@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+	</head>
+	<body>
+		<div id="app">
+			请输入年龄：
+			<input type="text" v-model="age" /> <br />
+			<!--  原本是渲染在了页面上 只是影藏了起来
+                只有 v-show  条件满足时才能显示  
+            不同的是带有 v-show 的元素始终会被渲染并保留在 DOM 中。
+            v-show 只是简单地切换元素的 CSS property display。
+            -->
+			<div v-show="age>=18">成年人</div>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					age: '',
+				},
+			})
+		</script>
+	</body>
+</html>

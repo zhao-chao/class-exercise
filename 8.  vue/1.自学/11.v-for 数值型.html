@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-for 这里可以循环 <span> 标签  后面的10表示循环多少次
+                从1开始
+
+                循环次数必须是整数
+             -->
+			<span v-for="arr in 10"> {{arr}} </span>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					age: '',
+				},
+			})
+		</script>
+	</body>
+</html>

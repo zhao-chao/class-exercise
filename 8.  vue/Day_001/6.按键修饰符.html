@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+			用户名：<input type="text" v-model="uname" @keyup.delete="obj2" />
+			<br />
+			密码：
+			<input
+				type="text"
+				v-model="password"
+				@keyup.enter="obj"
+				@keyup.delete="obj2"
+			/>
+			<br />
+			<button @click="obj">提交</button>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			let vm = new Vue({
+				el: '#app',
+				data: {
+					uname: '',
+					password: '',
+				},
+				methods: {
+					obj: function () {
+						console.log(this.uname, this.password)
+					},
+					obj2: function () {
+						this.uname = ''
+					},
+				},
+			})
+		</script>
+	</body>
+</html>

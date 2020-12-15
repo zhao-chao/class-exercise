@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 如果事件直接绑定函数名称，那么默认会传递事件对象作为事件函数的第一个参数 -->
+			<button v-on:click="obj">点击</button>
+			<hr />
+			<!-- 2、如果事件绑定函数调用，那么事件对象必须作为最后一个参数显示传递，
+                    并且事件对象的名称必须是$event  -->
+			<button v-on:click="obj1(1,2,$event)">点击</button>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			let vm = new Vue({
+				el: '#app',
+				data: {},
+				methods: {
+					obj: function () {
+						console.log(1)
+					},
+					obj1: function (a, b, event) {
+						console.log(a, b)
+						console.log(event.target.innerHTML)
+					},
+				},
+			})
+		</script>
+	</body>
+</html>

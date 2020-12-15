@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- .prevent 这是阻止默认事件触发 -->
+			<a href="http://baidu.com" @click.prevent.once="fun">百度</a>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {},
+				methods: {
+					fun: function () {
+						alert('拉拉啊拉')
+					},
+				},
+			})
+		</script>
+	</body>
+</html>

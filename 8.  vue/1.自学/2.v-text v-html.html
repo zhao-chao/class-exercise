@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+		<style>
+			h1 {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-text 可以完全取代标签里面的内容   但是不能解析 html 标签 -->
+			<div v-text="uname">111</div>
+
+			<!-- v-html 可以完全取代标签里面的内容   可以解析 html 标签 -->
+			<div v-html="message">111</div>
+
+			<!-- 如果遇到 内部嵌套 可以用打点调用的方法-->
+			<div v-html="book.number">111</div>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					book: {
+						age: '18',
+						number: 5,
+						fles: false,
+					},
+					uname: 'zc',
+					message: '<h1>你好啊</h1>',
+				},
+			})
+		</script>
+	</body>
+</html>

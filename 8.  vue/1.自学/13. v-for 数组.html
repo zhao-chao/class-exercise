@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-for 还可以循环 数组-->
+			<!-- 数组可以写到 v-for 里面也可以写到  script 里面  -->
+			<span v-for="arr in ['asd','asd','5564','sadq']"> {{arr}} </span>
+			<hr />
+
+			<span v-for="arr in age"> {{arr}} </span>
+
+			<!-- 循环ul 里面的  li -->
+			<ul>
+				<li v-for="arr in str">{{arr}}</li>
+			</ul>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					age: ['qqq', 'www', 'liaaa', 'ppp'],
+					str: ['q', 'w', 'o', 'h'],
+				},
+			})
+		</script>
+	</body>
+</html>

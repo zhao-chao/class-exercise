@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+	</head>
+	<body>
+		<div id="app">
+			请输入年龄：
+			<input type="text" v-model="age" /> <br />
+
+			<!-- if 用来判断  如果if 成立 就会显示-->
+			<!-- parseInt() 这个是转为整数  如果输入的不是 数字 就会是NAN 就不会进入到里面去 -->
+			<div v-if="parseInt(age)">
+				你的年龄是 :{{age}}
+				<div v-if="age < 19 ">回去写作业</div>
+
+				<div v-else-if=" age < 30 ">可以结婚拉</div>
+
+				<div v-else-if=" age > 30">可以去死了</div>
+				<div v-else>输入错误</div>
+			</div>
+			<div v-else-if="age !== ''">输入错误</div>
+			<!-- 判断年龄分区 -->
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					age: '',
+				},
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-text 可以完全取代标签里面的内容   但是不能解析 html 标签 -->
+			<div v-text="uname">111</div>
+
+			<!-- v-html 可以完全取代标签里面的内容   可以解析 html 标签 -->
+			<div v-html="message">111</div>
+
+			<!-- 如果遇到 内部嵌套 可以用打点调用的方法-->
+			<div v-html="book.number">111</div>
+
+			<!-- 显示原始信息 跳过编译过程 -->
+			<div v-pre>{{message}}</div>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					book: {
+						age: '18',
+						number: 5,
+						fles: false,
+					},
+					uname: 'zc',
+					message: '<h1>你好啊</h1>',
+				},
+			})
+		</script>
+	</body>
+	<!-- v-text  可以完全替代标签内部的内容  但是不能解析 html标签 -->
+
+	<!-- v-html  可以完全替代标签内部的内容  可以解析 html标签 
+                 但是  v-html 有安全隐患 
+              本网站可以用  来自第三方的数据不可以使用
+     -->
+
+	<!-- 要是方法里面套的方法 可以用book.message   -->
+</html>

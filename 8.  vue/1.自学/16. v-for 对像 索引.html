@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 在遍历对像的时候 
+               (value) 第一个值是 属性的值   
+               (name) 第二个值是 属性的名字
+               (i)  第二个值是 索引
+            -->
+			<div v-for="(value,name,i) in user">
+				{{i}} - {{name}} - {{value}}
+			</div>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					user: {
+						uname: 'zs',
+						age: 18,
+						mobile: '1323232322',
+					},
+				},
+			})
+		</script>
+	</body>
+</html>

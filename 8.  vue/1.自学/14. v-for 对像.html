@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 这是循环对像里面的值 -->
+			<ul>
+				<li v-for="arr in user">{{arr}}</li>
+			</ul>
+			<!-- 要是数组里面包的又对像  可以用双重循环 -->
+			<div v-for="arr in user1">
+				<div v-for="str in arr">{{str}}</div>
+			</div>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					user: {
+						uname: 'zs',
+						age: 18,
+						mobile: '1323232322',
+					},
+					user1: [
+						{
+							uname: 'zs',
+							age: 1,
+							mobile: '1111111',
+						},
+						{
+							uname: 'li',
+							age: 2,
+							mobile: '2222222',
+						},
+						{
+							uname: 'ww',
+							age: 3,
+							mobile: '3333333',
+						},
+					],
+				},
+			})
+		</script>
+	</body>
+</html>

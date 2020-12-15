@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>vue</title>
+		<style>
+			h1 {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			名字：{{uname}} <br />
+			年龄:{{age}}<br />
+			<h1>{{message}}</h1>
+			<br />
+			{{number * 2}} <br />
+			{{fles ? 'true':'假的'}}
+		</div>
+		<script src="./js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app', // el 是选着器
+				data: {
+					uname: 'zc',
+					age: '18',
+					message: 'woshishabi',
+					number: 5,
+					fles: false,
+				},
+			})
+		</script>
+		<!-- {{}} 这里可以写 简单的式子  三元表达式 -->
+	</body>
+</html>
